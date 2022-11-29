@@ -1,22 +1,20 @@
-import React from 'react';
-import styles from './colorBox.module.css'
-import PropTypes from 'prop-types';
-import myImage from '../assets/image/beautiful-shiny-pattern-on-dark-background-vector-8722445.jpg'
-const ColorBox = ({color, rounded}) => {
-    const round = 'rounded-circle'
-    return (
-        <img src={myImage} alt="myImage" className={`${styles.colorBox} ${rounded ? round : ''} `}>
-            
-        </img>
-    );
-}
+import React, { useState } from 'react';
 
-ColorBox.propTypes = {
-    color: PropTypes.string,
-    rounded: PropTypes.bool
-}
-ColorBox.defaultProps = {
-    rounded: true
+function ColorBox({}) {
+    
+    const [color, setColor] = useState('black');
+    
+    return (
+        <div>
+            <p id="color" style={{color: color}}>{color}</p>
+            <br />
+            <br />
+            <button onClick={() => setColor('white')}>Đổi thành màu trắng</button>
+            <button onClick={() => setColor('black')}>Đổi thành màu đen</button>
+            <button onClick={() => setColor('yellow')}>Đổi thành màu vàng</button>
+            <button onClick={() => setColor('red')}>Đổi thành màu đỏ</button>
+        </div>
+    )
 }
 
 export default ColorBox;
